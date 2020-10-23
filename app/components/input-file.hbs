@@ -1,0 +1,15 @@
+<div class="wrap-photo">
+    <figure class="photo-img">
+        <img src="{{ this.file }}" alt="user-photo-default">
+    </figure>
+</div>
+{{#if @photo}} {{else}} 
+    <label class="custom-file-upload">
+        <Input 
+            @id="inputFile"
+            @type="file" 
+            {{on "change" this.changedFile}}
+        />
+        Search
+    </label>
+{{/if}}

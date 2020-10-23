@@ -1,0 +1,45 @@
+<div class="content-search">
+    <div class="search-wrap">
+        <label>
+            <i class="fas fa-search"></i>
+        </label>
+        <Input @value={{ this.query }} type="text"/>
+    </div>
+</div>
+    
+<table class="authors-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Photo</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Nationality</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <TableAuthors::Filter @authors={{ @authors }} @query={{ this.query }} as |results|>
+            {{#each results as | author index |}}
+                <tr>
+                    <td>{{ index }}</td>
+                    <td>
+                        <figure class="profile-photo" >
+                            <img src="{{ author.photo }}" alt="">
+                        </figure>
+                    </td>
+                    <td>{{ author.firstName }}</td>
+                    <td>{{ author.lastName }}</td>
+                    <td>{{ author.nationality }}</td>
+                    <td>
+                        <LinkTo @route="author" @model="{{ author.id }}">
+                            <i class="fas fa-eye form-button-show"></i>  
+                        </LinkTo>
+                        <i class="fas fa-pencil-alt form-button-edit"></i>    
+                        <i {{on "click" (fn deleteAuthor author.id)}} class="fas fa-trash form-button-delete"></i>
+                    </td>
+                </tr>
+            {{/each}}
+        </TableAuthors::Filter>
+    </tbody>
+</table>

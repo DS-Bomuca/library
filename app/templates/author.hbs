@@ -1,0 +1,16 @@
+<div class="content-title">
+    <h3>Home / Authors > {{ this.fullName  }}</h3>
+</div>
+
+<GeneralContainer class="content-form" @title="Show author">
+    <FormUser @isDisabled={{true}} @author={{ @model.author }}></FormUser>
+</GeneralContainer>
+
+<GeneralContainer class="content-table" @title="Show books">    
+    <div class="wrap-books">
+        
+        {{#each @model.books as | book |}}
+            <CardBook @book={{ book }}></CardBook>
+        {{/each}}
+    </div>
+</GeneralContainer>

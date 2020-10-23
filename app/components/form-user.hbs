@@ -1,0 +1,59 @@
+<form class="form-user">
+    <div class="form-photo">
+        <InputFile @photo={{ @author.photo }} ></InputFile>
+    </div>
+
+    <div class="form-inputs">
+        <div class="wrap-input">
+            <label for="input-firstName">First name</label>
+            <Input 
+                @type="text" 
+                @value={{ this.firstName }}  
+                @readonly={{@isDisabled}}
+            />
+        </div>
+            
+        <div class="wrap-input">
+            <label for="input-lastName">Last name</label>
+            <Input 
+                @type="text" 
+                @value={{ this.lastName }}  
+                @readonly={{@isDisabled}}
+            />
+        </div>
+        
+        <div class="wrap-input">
+            <label for="input-nationality">Nationality</label>
+            {{#if @isDisabled}}
+                <Input 
+                    @type="text" 
+                    @value={{ this.nationality }}  
+                    readonly
+                />
+            {{else}}
+                <select name="country-select" onchange={{action "setSelection" value="target.value"}}>
+                    <option value="Mexico">Mexico</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            {{/if}}
+        </div>
+
+        <div class="wrap-input">
+            <label for="input-birthDate">Birth Date</label>
+            <Input 
+                @type={{if @isDisabled "text" "date"}} 
+                @value={{ this.birthDate }}  
+                @readonly={{@isDisabled}}
+            />
+        </div>
+    </div>
+
+</form>
+
+{{#unless @isDisabled}}
+    <div class="form-buttons">
+        <button class="form-button-summit" {{on "click" this.saveAuthor}}>Save</button>
+    </div>
+{{/unless}}

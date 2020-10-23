@@ -1,0 +1,242 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
+
+/**
+ * Base Elements
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+a,
+button {
+    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+body {
+    background: #f1faee;
+}
+
+/** Header component **/
+.menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: #264653;
+    height: 60px;
+}
+
+.menu .menu-logo {
+    display: flex;
+    align-self: center;
+}
+
+.menu .menu-logo i {
+    color: #ffffff;
+    font-size: 2em;
+    padding: 20px;
+}
+
+.profile-photo img {
+    height: 40px;
+    border-radius: 60px;
+    padding: 10px;
+}
+
+.menu-profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-profile .profile-info {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/** Header component **/
+
+.content {
+    display: grid;
+    margin: 1% 3% 0px 3%;
+    grid-template: 30px 1fr 1fr / 1fr;
+    grid-template-areas: "content-title"
+                         "content-form"
+                         "content-table";
+    gap: 20px;
+}
+
+.content .content-title {
+    grid-area: content-title;
+    background-color: #2a9d8f;
+    border-radius: 5px;
+    color: #ffffff;
+    padding-left: 1%;
+}
+
+.content .content-form {
+    grid-area: content-form;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.content .form-title {
+    border-radius: 5px 5px 0px 0px;
+    background-color: #e76f51;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 1%;
+}
+
+.content .form-user {
+    display: grid;
+    grid-template: 1fr / 15% 85%;
+    padding-top: 1%;
+}
+
+.form-user .form-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-photo .wrap-photo {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.wrap-photo .photo-img img {
+    height: 100px;
+    border-radius: 60px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.content-form .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5.5%;
+    margin-bottom: 20px;
+}
+
+.form-buttons .form-button-summit {
+    background-color: #264653;
+    color: #ffffff;
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.form-button-show {
+    color: #264653;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px
+}
+
+.form-button-edit {
+    color: #e76f51;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.form-button-delete {
+    color: #e63946;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px
+}
+
+.form-inputs {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.wrap-input {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-right: 3%;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    background-color: #457b9d;
+    display: inline-block;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+/** Table component **/
+.content-table {
+    grid-area: content-table;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.content-table table {
+    width: 100%;
+    text-align: center;
+}
+
+.content-search .search-wrap {
+    background-color: #f1faee;
+    width: 13%;
+    height: 30px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 23%;
+}
+
+.search-wrap input {
+    border: none;
+    background-color: #f1faee;
+    font-weight: bold;
+    width: 50%;
+}
+
+.book-card {
+    width: 220px;
+    display: flex;
+    margin-left: 20px;
+}
+
+.book-card .book-image img {
+    height: 100px;
+    margin: 0px;
+}
+
+.book-info label {
+    font-weight: bold;
+}
+
+.wrap-books {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+

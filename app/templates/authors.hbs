@@ -1,0 +1,12 @@
+
+<div class="content-title">
+    <h3>Home / Authors</h3>
+</div>
+
+<GeneralContainer class="content-form" @title="Register User">
+    <FormUser @isDisabled={{false}}></FormUser>
+</GeneralContainer>
+
+<GeneralContainer class="content-table" @title="Table authors">
+    <TableAuthors @authors={{ @model }}></TableAuthors>
+</GeneralContainer>
