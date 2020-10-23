@@ -5,20 +5,10 @@ import { inject as service } from '@ember/service';
 
 export default class FormUserComponent extends Component {
     @service store;
-    
-    @tracked firstName = (this.args.author) ? this.args.author.firstName : ""; 
-    @tracked lastName = (this.args.author) ? this.args.author.lastName : "";
-    @tracked nationality = (this.args.author) ? this.args.author.nationality : "";
-    @tracked birthDate = (this.args.author) ? this.args.author.birthDate : "";
-
-    @action
-    setSelection(value) {
-        this.nationality = value;
-    }
 
     //Save author function
     @action
-    saveAuthor() {
+    saveAuthor(save) {
 
         if (this.emptyValues()) {
             return Swal.fire({
@@ -29,17 +19,7 @@ export default class FormUserComponent extends Component {
         }
 
         try {
-            let author = this.store.createRecord('author', {
-                id : Math.random() * 100,
-                firstName: this.firstName,
-                lastName: this.lastName,
-                nationality: this.nationality,
-                birthDate: this.birthDate
-            });
-    
-            author.save();
-    
-            this.clearValue();
+            save();
             
             Swal.fire({
                 icon: 'success',
@@ -54,22 +34,13 @@ export default class FormUserComponent extends Component {
         }
     }
 
-    //Clear the form author
-    clearValue() {
-        this.id = 0;
-        this.firstName = "";
-        this.lastName = "";
-        this.nationality = "";
-        this.birthDate = "";
-    }
-
     //Validate empty values
     emptyValues() {
         if (
-            this.firstName &&
-            this.lastName &&
-            this.nationality &&
-            this.birthDate
+            this.args.author.firstName  &&
+            this.args.author.lastName  &&
+            this.args.author.nationality &&
+            this.args.author.birthDate
         ) {
             return false;
         }

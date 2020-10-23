@@ -35,7 +35,7 @@
                         <LinkTo @route="author" @model="{{ author.id }}">
                             <i class="fas fa-eye form-button-show"></i>  
                         </LinkTo>
-                        <i class="fas fa-pencil-alt form-button-edit"></i>    
+                        <i {{on "click" (fn @setAuthor author)}} class="fas fa-pencil-alt form-button-edit"></i>    
                         <i {{on "click" (fn deleteAuthor author.id)}} class="fas fa-trash form-button-delete"></i>
                     </td>
                 </tr>

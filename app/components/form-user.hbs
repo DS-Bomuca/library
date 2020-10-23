@@ -1,6 +1,6 @@
 <form class="form-user">
     <div class="form-photo">
-        <InputFile @photo={{ @author.photo }} ></InputFile>
+        <InputFile @photo={{ @author.photo }} @isDisabled={{@isDisabled}}></InputFile>
     </div>
 
     <div class="form-inputs">
@@ -8,7 +8,7 @@
             <label for="input-firstName">First name</label>
             <Input 
                 @type="text" 
-                @value={{ this.firstName }}  
+                @value={{ @author.firstName }}  
                 @readonly={{@isDisabled}}
             />
         </div>
@@ -17,34 +17,25 @@
             <label for="input-lastName">Last name</label>
             <Input 
                 @type="text" 
-                @value={{ this.lastName }}  
+                @value={{ @author.lastName }}  
                 @readonly={{@isDisabled}}
             />
         </div>
         
         <div class="wrap-input">
             <label for="input-nationality">Nationality</label>
-            {{#if @isDisabled}}
                 <Input 
                     @type="text" 
-                    @value={{ this.nationality }}  
-                    readonly
+                    @value={{ @author.nationality }}  
+                    @readonly={{@isDisabled}}
                 />
-            {{else}}
-                <select name="country-select" onchange={{action "setSelection" value="target.value"}}>
-                    <option value="Mexico">Mexico</option>
-                    <option value="United States">United States</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="Canada">Canada</option>
-                </select>
-            {{/if}}
         </div>
 
         <div class="wrap-input">
             <label for="input-birthDate">Birth Date</label>
             <Input 
                 @type={{if @isDisabled "text" "date"}} 
-                @value={{ this.birthDate }}  
+                @value={{ @author.birthDate }}  
                 @readonly={{@isDisabled}}
             />
         </div>
@@ -54,6 +45,7 @@
 
 {{#unless @isDisabled}}
     <div class="form-buttons">
-        <button class="form-button-summit" {{on "click" this.saveAuthor}}>Save</button>
+        <button class="form-button-summit" {{on "click" @update }}>Update</button>
+        <button class="form-button-summit" {{on "click" (fn this.saveAuthor @save) }}>Save</button>
     </div>
 {{/unless}}

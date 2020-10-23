@@ -4,9 +4,9 @@
 </div>
 
 <GeneralContainer class="content-form" @title="Register User">
-    <FormUser @isDisabled={{false}}></FormUser>
+    <FormUser @isDisabled={{false}} @author={{ this.author }} @update={{ this.update }} @save={{ this.save }}></FormUser>
 </GeneralContainer>
 
 <GeneralContainer class="content-table" @title="Table authors">
-    <TableAuthors @authors={{ @model }}></TableAuthors>
+    <TableAuthors @authors={{ @model }} @setAuthor={{this.setAuthor}}></TableAuthors>
 </GeneralContainer>

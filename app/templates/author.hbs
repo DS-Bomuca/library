@@ -8,7 +8,6 @@
 
 <GeneralContainer class="content-table" @title="Show books">    
     <div class="wrap-books">
-        
         {{#each @model.books as | book |}}
             <CardBook @book={{ book }}></CardBook>
         {{/each}}

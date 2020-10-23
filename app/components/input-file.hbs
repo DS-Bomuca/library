@@ -3,7 +3,7 @@
         <img src="{{ this.file }}" alt="user-photo-default">
     </figure>
 </div>
-{{#unless @photo}}
+{{#unless @isDisabled}}
     <label class="custom-file-upload">
         <Input 
             @id="inputFile"
