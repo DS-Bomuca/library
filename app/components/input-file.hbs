@@ -3,7 +3,7 @@
         <img src="{{ this.file }}" alt="user-photo-default">
     </figure>
 </div>
-{{#if @photo}} {{else}} 
+{{#unless @photo}}
     <label class="custom-file-upload">
         <Input 
             @id="inputFile"
@@ -12,4 +12,4 @@
         />
         Search
     </label>
-{{/if}}
+{{/unless}}
